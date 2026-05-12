@@ -409,3 +409,12 @@ a {
     padding: 38px 20px;
   }
 }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("images/IMG_6368.jpeg") center center no-repeat;
+    background-size: 420px;
+    opacity: 0.06;
+    pointer-events: none;
+}
