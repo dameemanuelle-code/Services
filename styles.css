@@ -413,8 +413,18 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("images/IMG_6038.jpeg") center center no-repeat;
-    background-size: 420px;
-    opacity: 0.06;
+
+    background:
+        url("images/IMG_6038.jpeg")
+        center center no-repeat;
+
+    background-size: 560px;
+
+    opacity: 0.12;
+
+    filter:
+        drop-shadow(0 0 18px rgba(180,130,40,0.18))
+        blur(0.3px);
+
     pointer-events: none;
 }
