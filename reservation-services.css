@@ -333,3 +333,23 @@ textarea{
   border-color:rgba(255,255,255,.25);
   color:rgba(255,255,255,.92);
 }
+.success-box{
+  text-align:center;
+  padding:50px 20px;
+}
+
+.success-box h2{
+  font-family:'Playfair Display',serif;
+  color:var(--gold);
+  font-size:2rem;
+  margin-bottom:18px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.success-box p{
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+  max-width:520px;
+  margin:0 auto;
+}
