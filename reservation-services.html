@@ -314,6 +314,29 @@
   <!-- JS -->
 
   <script src="reservation-services.js"></script>
+<script>
 
+const form = document.getElementById("serviceBookingForm");
+
+form.addEventListener("submit", function() {
+
+  setTimeout(() => {
+
+    form.innerHTML = `
+      <div class="success-box">
+        <h2>Demande transmise</h2>
+
+        <p>
+          Votre demande a bien été envoyée.
+          Nous vous contacterons après validation.
+        </p>
+      </div>
+    `;
+
+  }, 800);
+
+});
+
+</script>
 </body>
 </html>
