@@ -17,10 +17,7 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header class="topbar">
-
     <div class="topbar-inner">
 
       <a class="brand" href="index.html">
@@ -33,10 +30,7 @@
       </a>
 
     </div>
-
   </header>
-
-  <!-- MAIN -->
 
   <main class="reservation-wrapper">
 
@@ -51,15 +45,13 @@
         Chaque demande sera validée avant confirmation finale.
       </p>
 
-      <!-- FORMULAIRE -->
-
-  <form
-  id="serviceBookingForm"
-  class="form"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSdvaqRy2nDmMKOrVVC4Vn0al-Hg6zuMT703LRofp9lGYy9cSw/formResponse"
-  method="POST"
-  target="hidden_iframe"
->
+      <form
+        id="serviceBookingForm"
+        class="form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdvaqRy2nDmMKOrVVC4Vn0al-Hg6zuMT703LRofp9lGYy9cSw/formResponse"
+        method="POST"
+        target="hidden_iframe"
+      >
 
         <!-- SERVICE -->
 
@@ -119,7 +111,7 @@
 
         </div>
 
-        <!-- DATE + CRENEAU -->
+        <!-- DATE + CRÉNEAU -->
 
         <div class="grid2">
 
@@ -153,28 +145,20 @@
               name="entry.1709299398"
               required
             >
-<div class="form-group">
+              <option value="">
+                Choisir une date d’abord
+              </option>
+            </select>
 
-  <label for="slot">
-    Créneau disponible
-  </label>
+            <div id="slotPills" class="slot-pills"></div>
 
-  <select
-    id="slot"
-    name="entry.1709299398"
-    required
-  >
-    <option value="">Choisir une date d’abord</option>
-  </select>
+            <p id="slotHint" class="slot-hint"></p>
 
-  <div id="slotPills" class="slot-pills"></div>
+          </div>
 
-  <p id="slotHint" class="slot-hint"></p>
+        </div>
 
-</div>
-              
-
-        <!-- DUREE -->
+        <!-- DURÉE -->
 
         <div class="form-group">
 
@@ -290,8 +274,6 @@
           Envoyer la demande
         </button>
 
-        <!-- TEXTE -->
-
         <p class="fineprint">
           Toute demande demeure sujette à validation avant confirmation finale.
         </p>
@@ -302,39 +284,35 @@
 
   </main>
 
-  <!-- IFRAME CACHE -->
-
   <iframe
     name="hidden_iframe"
     style="display:none;"
   ></iframe>
 
-  <!-- JS -->
-
   <script src="reservation-services.js"></script>
-<script>
 
-const form = document.getElementById("serviceBookingForm");
+  <script>
+    const form = document.getElementById("serviceBookingForm");
 
-form.addEventListener("submit", function() {
+    form.addEventListener("submit", function() {
 
-  setTimeout(() => {
+      setTimeout(() => {
 
-    form.innerHTML = `
-      <div class="success-box">
-        <h2>Demande transmise</h2>
+        form.innerHTML = `
+          <div class="success-box">
+            <h2>Demande transmise</h2>
 
-        <p>
-          Votre demande a bien été envoyée.
-          Nous vous contacterons après validation.
-        </p>
-      </div>
-    `;
+            <p>
+              Votre demande a bien été envoyée.
+              Nous vous contacterons après validation.
+            </p>
+          </div>
+        `;
 
-  }, 800);
+      }, 800);
 
-});
+    });
+  </script>
 
-</script>
 </body>
 </html>
