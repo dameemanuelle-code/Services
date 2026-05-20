@@ -161,7 +161,6 @@ Message complémentaire :
 ${message || "Aucun message ajouté."}`
   );
 
-  window.location.href = `mailto:Dameemanuelle@gmail.com?subject=${subject}&body=${body}`;
 }
 
 buildCalendar();
