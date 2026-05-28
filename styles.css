@@ -622,3 +622,55 @@ a {
     text-align: center;
   }
 }
+.gallery-service {
+  max-width: 1180px;
+  margin: 80px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.gallery-service h2 {
+  font-family: 'Playfair Display', serif;
+  color: #f0dfb2;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 28px;
+}
+
+.gallery-main {
+  border: 1px solid rgba(214, 179, 106, .35);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,.45);
+  background: #090607;
+}
+
+.gallery-main img {
+  width: 100%;
+  max-height: 720px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  cursor: pointer;
+  border: 1px solid rgba(214, 179, 106, .25);
+  opacity: .75;
+  transition: .25s ease;
+}
+
+.gallery-thumbs img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+}
