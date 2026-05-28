@@ -74,19 +74,32 @@
       </div>
 
     </div>
-<section class="gallery-service">
-  <h2>Galerie</h2>
+<section class="cf-carousel-section">
 
-  <div class="gallery-main">
-    <img id="mainImage" src="images/photo1.jpg" alt="Galerie Cuir & Fantaisies">
+  <h2 class="carousel-title">Galerie</h2>
+
+  <div class="cf-carousel">
+
+    <button class="carousel-btn prev" onclick="scrollCarousel(-1)">
+      &#10094;
+    </button>
+
+    <div class="carousel-track" id="carouselTrack">
+
+      <img src="images/photo1.jpg" alt="">
+      <img src="images/photo2.jpg" alt="">
+      <img src="images/photo3.jpg" alt="">
+      <img src="images/photo4.jpg" alt="">
+      <img src="images/photo5.jpg" alt="">
+
+    </div>
+
+    <button class="carousel-btn next" onclick="scrollCarousel(1)">
+      &#10095;
+    </button>
+
   </div>
 
-  <div class="gallery-thumbs">
-    <img src="images/photo1.jpg" alt="" onclick="changeImage(this)">
-    <img src="images/photo2.jpg" alt="" onclick="changeImage(this)">
-    <img src="images/photo3.jpg" alt="" onclick="changeImage(this)">
-    <img src="images/photo4.jpg" alt="" onclick="changeImage(this)">
-  </div>
 </section>
   </section>
 
