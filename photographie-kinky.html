@@ -105,10 +105,20 @@
 
 </main>
 <script>
-  function changeImage(img) {
-    const mainImage = document.getElementById("mainImage");
-    mainImage.src = img.src;
-  }
+
+function scrollCarousel(direction){
+
+  const track = document.getElementById("carouselTrack");
+
+  const scrollAmount = 450;
+
+  track.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+
+}
+
 </script>
 </body>
 </html>
