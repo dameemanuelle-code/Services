@@ -623,70 +623,37 @@ a {
   }
 .social-section {
   max-width: 1180px;
-  margin: 90px auto 70px;
-  padding: 45px 24px;
-  text-align: center;
+  margin: 90px auto 70px !important;
+  padding: 45px 24px !important;
+  text-align: center !important;
   border: 1px solid rgba(212, 175, 55, 0.28);
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(72, 12, 28, 0.35), rgba(0, 0, 0, 0.4));
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-}
-
-.social-section h2 {
-  margin-bottom: 12px;
-  color: #d4af37;
-  font-size: 1.9rem;
-  letter-spacing: 0.08em;
-}
-
-.social-section p {
-  max-width: 680px;
-  margin: 0 auto 30px;
-  color: #e8dccd;
-  line-height: 1.7;
 }
 
 .social-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin-top: 30px !important;
 }
 
 .social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-width: 145px;
-  padding: 14px 18px;
-  color: #f7ead8;
-  text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.32);
-  transition: 0.25s ease;
-}
-
-.social-links a:hover {
-  color: #ffffff;
-  border-color: #d4af37;
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.18);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-width: 145px !important;
+  padding: 14px 18px !important;
+  color: #f7ead8 !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 999px !important;
+  background: rgba(0, 0, 0, 0.32) !important;
 }
 
 .social-links i {
-  color: #d4af37;
-  font-size: 1.15rem;
-}
-
-@media (max-width: 600px) {
-  .social-section {
-    margin: 60px 18px;
-    padding: 34px 18px;
-  }
-
-  .social-links a {
-    width: 100%;
-  }
+  color: #d4af37 !important;
+  font-size: 1.2rem !important;
 }
