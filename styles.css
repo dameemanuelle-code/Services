@@ -69,9 +69,7 @@ a {
   background: url("images/IMG_6038.jpeg") center center no-repeat;
   background-size: 560px;
   opacity: 0.25;
-  filter:
-    drop-shadow(0 0 18px rgba(180, 130, 40, 0.18))
-    blur(0.3px);
+  filter: drop-shadow(0 0 18px rgba(180, 130, 40, 0.18)) blur(0.3px);
   pointer-events: none;
   z-index: 0;
 }
@@ -186,12 +184,12 @@ a {
 }
 
 .hero-btn,
-.reservation-btn {
+.reservation-btn,
+.service-btn {
   display: inline-block;
   padding: 15px 28px;
   border-radius: 999px;
-  background:
-    linear-gradient(180deg, rgba(230, 201, 142, 0.98), rgba(189, 144, 66, 0.96));
+  background: linear-gradient(180deg, rgba(230, 201, 142, 0.98), rgba(189, 144, 66, 0.96));
   color: #24150d;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -203,7 +201,8 @@ a {
 }
 
 .hero-btn:hover,
-.reservation-btn:hover {
+.reservation-btn:hover,
+.service-btn:hover {
   transform: translateY(-3px);
   box-shadow:
     0 18px 30px rgba(0, 0, 0, 0.42),
@@ -259,17 +258,13 @@ a {
 .service-card {
   position: relative;
   display: block;
-  background:
-    linear-gradient(180deg, rgba(43, 15, 22, 0.90), rgba(16, 8, 11, 0.96));
+  background: linear-gradient(180deg, rgba(43, 15, 22, 0.90), rgba(16, 8, 11, 0.96));
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
   color: inherit;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .service-card::before {
@@ -346,8 +341,7 @@ a {
 .more-box,
 .reservation-box {
   text-align: center;
-  background:
-    linear-gradient(180deg, rgba(58, 15, 28, 0.65), rgba(14, 8, 10, 0.92));
+  background: linear-gradient(180deg, rgba(58, 15, 28, 0.65), rgba(14, 8, 10, 0.92));
   border: 1px solid rgba(214, 179, 106, 0.24);
   border-radius: 24px;
   padding: 48px 28px;
@@ -356,6 +350,68 @@ a {
 
 .reservation-btn {
   margin-top: 28px;
+}
+
+/* RÉSEAUX SOCIAUX */
+
+.social-section {
+  width: min(100% - 40px, var(--max-width));
+  margin: 30px auto 70px;
+  padding: 45px 24px;
+  text-align: center;
+  border: 1px solid rgba(214, 179, 106, 0.28);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(72, 12, 28, 0.35), rgba(0, 0, 0, 0.4));
+  box-shadow: var(--shadow);
+}
+
+.social-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-soft);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 14px;
+}
+
+.social-section p {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  color: var(--text-soft);
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 145px;
+  padding: 14px 18px;
+  color: #f7ead8;
+  text-decoration: none;
+  border: 1px solid rgba(214, 179, 106, 0.35);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  background: rgba(214, 179, 106, 0.08);
+  box-shadow: 0 0 18px rgba(214, 179, 106, 0.18);
+}
+
+.social-links i {
+  color: var(--gold);
+  font-size: 1.2rem;
 }
 
 /* FOOTER */
@@ -369,74 +425,6 @@ a {
   text-transform: uppercase;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-  .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding: 130px 0 70px;
-  }
-
-  .topbar {
-    flex-direction: column;
-    gap: 14px;
-    padding: 18px 6%;
-  }
-
-  .hero-text {
-    font-size: 1.2rem;
-  }
-
-  .intro-text,
-  .more-box p,
-  .reservation-box p {
-    font-size: 1.18rem;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-image-frame img {
-    height: 250px;
-  }
-
-  .service-card-content h3 {
-    font-size: 1.8rem;
-  }
-
-  .service-card-content p {
-    font-size: 1.12rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-inner {
-    width: min(100% - 24px, var(--max-width));
-  }
-
-  .hero-monogram {
-    font-size: 7rem;
-  }
-
-  .hero-btn,
-  .reservation-btn,
-  .nav-btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .more-box,
-  .reservation-box {
-    padding: 38px 20px;
-  }
-}
 /* PAGES INDIVIDUELLES DE SERVICES */
 
 .service-page {
@@ -498,8 +486,7 @@ a {
 }
 
 .service-detail-text {
-  background:
-    linear-gradient(180deg, rgba(58, 15, 28, 0.58), rgba(14, 8, 10, 0.94));
+  background: linear-gradient(180deg, rgba(58, 15, 28, 0.58), rgba(14, 8, 10, 0.94));
   border: 1px solid rgba(214, 179, 106, 0.25);
   border-radius: 28px;
   padding: 46px;
@@ -545,7 +532,6 @@ a {
   margin-top: 30px;
 }
 
-.service-btn,
 .service-btn-secondary {
   display: inline-block;
   padding: 14px 24px;
@@ -553,31 +539,23 @@ a {
   font-weight: 700;
   letter-spacing: 0.04em;
   font-size: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.service-btn {
-  background:
-    linear-gradient(180deg, rgba(230, 201, 142, 0.98), rgba(189, 144, 66, 0.96));
-  color: #24150d;
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.service-btn-secondary {
   border: 1px solid rgba(214, 179, 106, 0.45);
   color: var(--gold-soft);
   background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
-.service-btn:hover,
 .service-btn-secondary:hover {
   transform: translateY(-3px);
+  background: rgba(214, 179, 106, 0.08);
 }
 
-.service-btn-secondary:hover {
-  background: rgba(214, 179, 106, 0.08);
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -592,6 +570,54 @@ a {
 
   .service-detail-text {
     padding: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 130px 0 70px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 6%;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+  }
+
+  .intro-text,
+  .more-box p,
+  .reservation-box p {
+    font-size: 1.18rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-image-frame img {
+    height: 250px;
+  }
+
+  .service-card-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .service-card-content p {
+    font-size: 1.12rem;
+  }
+
+  .social-section {
+    margin: 30px auto 60px;
+    padding: 34px 18px;
+  }
+
+  .social-links a {
+    min-width: 135px;
   }
 }
 
@@ -621,51 +647,34 @@ a {
     width: 100%;
     text-align: center;
   }
-.social-section {
-  max-width: 1180px;
-  margin: 90px auto 70px !important;
-  padding: 45px 24px !important;
-  text-align: center !important;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(72, 12, 28, 0.35), rgba(0, 0, 0, 0.4));
 }
 
-.social-links {
-  display: flex !important;
-  justify-content: center !important;
-  flex-wrap: wrap !important;
-  gap: 16px !important;
-  margin-top: 30px !important;
-}
+@media (max-width: 480px) {
+  .section-inner {
+    width: min(100% - 24px, var(--max-width));
+  }
 
-.social-links a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  min-width: 145px !important;
-  padding: 14px 18px !important;
-  color: #f7ead8 !important;
-  text-decoration: none !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  border-radius: 999px !important;
-  background: rgba(0, 0, 0, 0.32) !important;
-}
+  .hero-monogram {
+    font-size: 7rem;
+  }
 
-.social-links i {
-  color: #d4af37 !important;
-  font-size: 1.2rem !important;
-}
-}
+  .hero-btn,
+  .reservation-btn,
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
 
-/* Réseaux sociaux */
-.social-section {
-  max-width: 1180px;
-  margin: 90px auto 70px !important;
-  padding: 45px 24px !important;
-  text-align: center;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(72, 12, 28, 0.35), rgba(0, 0, 0, 0.4));
+  .more-box,
+  .reservation-box {
+    padding: 38px 20px;
+  }
+
+  .social-links {
+    flex-direction: column;
+  }
+
+  .social-links a {
+    width: 100%;
+  }
 }
