@@ -671,10 +671,27 @@ a {
   }
 
   .social-links {
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
 
-  .social-links a {
-    width: 100%;
-  }
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 175px;
+  padding: 18px 26px;
+  color: #f7ead8;
+  text-decoration: none;
+  border: 1px solid rgba(214, 179, 106, 0.35);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  font-size: 1.18rem;
+}
+  .social-links i {
+  color: var(--gold);
+  font-size: 1.45rem;
 }
