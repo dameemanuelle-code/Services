@@ -85,6 +85,9 @@
 
             <select id="slot" name="entry.1709299398" required>
               <option value="">Choisir une date d’abord</option>
+              <option value="Am">Am</option>
+              <option value="Pm">Pm</option>
+              <option value="Soirée">Soirée</option>
             </select>
 
             <div id="slotPills" class="slot-pills"></div>
@@ -121,7 +124,7 @@
             <input
               type="text"
               id="name"
-              name="entry.141641136"
+              name="entry.1416411362"
               required
             >
           </div>
@@ -151,7 +154,6 @@
         </div>
 
         <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="fbzx" value="auto">
 
         <button type="submit" class="btn-primary">
           Envoyer la demande
@@ -166,7 +168,7 @@
       <div id="successMessage" class="success-box" hidden>
         <h2>Demande transmise</h2>
         <p>
-          Votre demande a été envoyée. Nous vous contacterons après validation.
+          Votre demande a bien été envoyée. Nous vous contacterons après validation.
         </p>
       </div>
 
@@ -184,12 +186,19 @@
   <script>
     const form = document.getElementById("serviceBookingForm");
     const successMessage = document.getElementById("successMessage");
+    const hiddenIframe = document.getElementById("hidden_iframe");
+
+    let submitted = false;
 
     form.addEventListener("submit", function () {
-      setTimeout(function () {
+      submitted = true;
+    });
+
+    hiddenIframe.addEventListener("load", function () {
+      if (submitted) {
         form.hidden = true;
         successMessage.hidden = false;
-      }, 1200);
+      }
     });
   </script>
 
