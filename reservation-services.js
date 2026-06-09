@@ -1,10 +1,10 @@
 const availability = {
-  1: ["10:00", "13:30", "15:00"],
-  2: ["11:00", "14:00"],
-  3: ["13:00", "16:00"],
-  4: ["10:30", "15:30", "18:00"],
-  5: ["11:30", "14:30"],
-  6: ["13:00", "16:30"],
+  1: ["Am", "Pm"],
+  2: ["Am", "Pm"],
+  3: ["Pm"],
+  4: ["Am", "Pm", "Soirée"],
+  5: ["Am", "Pm"],
+  6: ["Pm", "Soirée"],
   0: []
 };
 
@@ -16,20 +16,20 @@ const slotHint = document.getElementById("slotHint");
 
 let selectedDate = "";
 
-function pad(n){
-  return String(n).padStart(2,"0");
+function pad(n) {
+  return String(n).padStart(2, "0");
 }
 
-function formatDate(date){
-  return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}`;
+function formatDate(date) {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
-function buildCalendar(){
+function buildCalendar() {
   calendar.innerHTML = "";
 
   const today = new Date();
 
-  for(let i = 0; i < 14; i++){
+  for (let i = 0; i < 14; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
 
@@ -41,16 +41,16 @@ function buildCalendar(){
     el.type = "button";
     el.className = "day";
 
-    if(slots.length === 0){
+    if (slots.length === 0) {
       el.classList.add("unavailable");
     }
 
-    if(iso === selectedDate){
+    if (iso === selectedDate) {
       el.classList.add("selected");
     }
 
-    const dow = d.toLocaleDateString("fr-CA", { weekday:"short" });
-    const month = d.toLocaleDateString("fr-CA", { month:"short" });
+    const dow = d.toLocaleDateString("fr-CA", { weekday: "short" });
+    const month = d.toLocaleDateString("fr-CA", { month: "short" });
 
     el.innerHTML = `
       <div class="day-top">
@@ -59,11 +59,15 @@ function buildCalendar(){
       </div>
       <div class="day-badges">
         <span class="badge">${month}</span>
-        ${slots.length ? `<span class="badge">${slots.length} choix</span>` : `<span class="badge">Complet</span>`}
+        ${
+          slots.length
+            ? `<span class="badge">${slots.length} choix</span>`
+            : `<span class="badge">Complet</span>`
+        }
       </div>
     `;
 
-    if(slots.length){
+    if (slots.length) {
       el.addEventListener("click", () => {
         selectedDate = iso;
         dateInput.value = iso;
@@ -76,12 +80,12 @@ function buildCalendar(){
   }
 }
 
-function updateSlots(dateValue){
+function updateSlots(dateValue) {
   slotSelect.innerHTML = "";
   slotPills.innerHTML = "";
   slotHint.textContent = "";
 
-  if(!dateValue){
+  if (!dateValue) {
     slotSelect.innerHTML = `<option value="">Choisir une date d’abord</option>`;
     return;
   }
@@ -89,7 +93,7 @@ function updateSlots(dateValue){
   const d = new Date(dateValue + "T12:00:00");
   const slots = availability[d.getDay()] || [];
 
-  if(!slots.length){
+  if (!slots.length) {
     slotSelect.innerHTML = `<option value="">Aucun créneau disponible</option>`;
     slotHint.textContent = "Cette date ne semble pas disponible. Choisissez une autre journée.";
     return;
@@ -127,40 +131,5 @@ dateInput.addEventListener("change", () => {
   updateSlots(selectedDate);
   buildCalendar();
 });
-
-function sendServiceForm(){
-  const service = document.getElementById("service").value;
-  const date = document.getElementById("date").value;
-  const slot = document.getElementById("slot").value;
-  const duration = document.getElementById("duration").value;
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
-
-  if(!service || !date || !slot || !duration || !name || !email){
-    alert("Veuillez remplir les champs obligatoires avant d’envoyer la demande.");
-    return;
-  }
-
-  const subject = encodeURIComponent("Demande de réservation — Service Cuir & Fantaisies");
-
-  const body = encodeURIComponent(
-`Nouvelle demande de réservation
-
-Service souhaité : ${service}
-Date souhaitée : ${date}
-Créneau : ${slot}
-Durée : ${duration}
-
-Nom ou surnom : ${name}
-Email : ${email}
-Téléphone : ${phone || "Non indiqué"}
-
-Message complémentaire :
-${message || "Aucun message ajouté."}`
-  );
-
-}
 
 buildCalendar();
