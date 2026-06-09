@@ -25,6 +25,8 @@ function formatDate(date) {
 }
 
 function buildCalendar() {
+  if (!calendar) return;
+
   calendar.innerHTML = "";
 
   const today = new Date();
@@ -47,18 +49,24 @@ function buildCalendar() {
 
     if (iso === selectedDate) {
       el.classList.add("selected");
-    }
 
-    const dow = d.toLocaleDateString("fr-CA", { weekday: "short" });
-    const month = d.toLocaleDateString("fr-CA", { month: "short" });
+    const dow = d.toLocaleDateString("fr-CA", {
+      weekday: "short"
+    });
+
+    const month = d.toLocaleDateString("fr-CA", {
+      month: "short"
+    });
 
     el.innerHTML = `
       <div class="day-top">
         <span class="day-num">${d.getDate()}</span>
         <span class="day-dow">${dow}</span>
       </div>
+
       <div class="day-badges">
         <span class="badge">${month}</span>
+
         ${
           slots.length
             ? `<span class="badge">${slots.length} choix</span>`
@@ -71,6 +79,7 @@ function buildCalendar() {
       el.addEventListener("click", () => {
         selectedDate = iso;
         dateInput.value = iso;
+
         updateSlots(iso);
         buildCalendar();
       });
@@ -86,7 +95,8 @@ function updateSlots(dateValue) {
   slotHint.textContent = "";
 
   if (!dateValue) {
-    slotSelect.innerHTML = `<option value="">Choisir une date d’abord</option>`;
+    slotSelect.innerHTML =
+      `<option value="">Choisir une date d’abord</option>`;
     return;
   }
 
@@ -94,17 +104,24 @@ function updateSlots(dateValue) {
   const slots = availability[d.getDay()] || [];
 
   if (!slots.length) {
-    slotSelect.innerHTML = `<option value="">Aucun créneau disponible</option>`;
-    slotHint.textContent = "Cette date ne semble pas disponible. Choisissez une autre journée.";
+    slotSelect.innerHTML =
+      `<option value="">Aucun créneau disponible</option>`;
+
+    slotHint.textContent =
+      "Cette date ne semble pas disponible. Choisissez une autre journée.";
+
     return;
   }
 
-  slotSelect.innerHTML = `<option value="">Choisir un créneau</option>`;
+  slotSelect.innerHTML =
+    `<option value="">Choisir un créneau</option>`;
 
   slots.forEach(slot => {
+
     const opt = document.createElement("option");
     opt.value = slot;
     opt.textContent = slot;
+
     slotSelect.appendChild(opt);
 
     const pill = document.createElement("button");
@@ -113,6 +130,7 @@ function updateSlots(dateValue) {
     pill.textContent = slot;
 
     pill.addEventListener("click", () => {
+
       slotSelect.value = slot;
 
       document.querySelectorAll(".pill").forEach(p => {
@@ -126,10 +144,13 @@ function updateSlots(dateValue) {
   });
 }
 
-dateInput.addEventListener("change", () => {
-  selectedDate = dateInput.value;
-  updateSlots(selectedDate);
-  buildCalendar();
-});
+if (dateInput) {
+  dateInput.addEventListener("change", () => {
+    selectedDate = dateInput.value;
+
+    updateSlots(selectedDate);
+    buildCalendar();
+  });
+}
 
 buildCalendar();
