@@ -49,6 +49,7 @@ function buildCalendar() {
 
     if (iso === selectedDate) {
       el.classList.add("selected");
+    }
 
     const dow = d.toLocaleDateString("fr-CA", {
       weekday: "short"
